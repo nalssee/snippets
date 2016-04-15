@@ -12,9 +12,7 @@
                  ;; TODO: Keyword seems to be wierd a bit
                  [(string? val) val]
                  [(= (str (first val)) INSERT)
-                  ;; Hy exression insertion must be like (hy (+ 3 4))
-                  ;; Only a single s-expr must be passed, others are just ignored
-                  `(str ~(second val))]
+                  `(str (do ~@(cut val 1)))]
                  [True
                   (apply tag val)])]
           
