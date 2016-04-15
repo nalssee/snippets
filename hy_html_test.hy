@@ -42,11 +42,10 @@
          (h1 "Five circles")
          (svg {width 300 height 100}
               (hy
-               (do
-                (setv result [])
-                (for (i (range n))
-                  (.append result (.draw (Won :x (* i 50)))))
-                (.join "" result))))))))))
+               (setv result [])
+               (for (i (range n))
+                 (.append result (.draw (Won :x (* i 50)))))
+               (.join "" result)))))))))
 
 (with (f (open "circles.html" "w"))
       (.write f (ncircles 5)))
