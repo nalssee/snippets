@@ -39,7 +39,7 @@
                  "</" (str '~tagname) ">"))]))
 
   (defn keep-dash (sym)
-    (.replace (str sym) "_" "-"))
+    (.replace (name sym) "_" "-"))
 
   ;; attr is not a Dict, it's a HyDict
   (defn build-attr (attrs)

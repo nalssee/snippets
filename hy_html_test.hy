@@ -13,8 +13,12 @@
 
   (defn draw (self)
     (hy-html
-     (circle {cx self.cx cy self.cy r self.r
-              stroke self.stroke stroke-width self.stroke-width fill self.fill}))))
+     (circle {:cx self.cx
+              :cy self.cy
+              :r self.r
+              :stroke self.stroke
+              :stroke-width self.stroke-width
+              :fill self.fill}))))
 
 
 ;; BeautifulSoup changes <circle ../> to <circle ...> </circle>
