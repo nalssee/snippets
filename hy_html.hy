@@ -38,14 +38,11 @@
                  ~(build-values (cut args 1))
                  "</" (str '~tagname) ">"))]))
 
-  (defn keep-dash (sym)
-    (.replace (name sym) "_" "-"))
-
   ;; attr is not a Dict, it's a HyDict
   (defn build-attr (attrs)
     (setv result [])
     (for (i (range 0 (len attrs) 2))
-      (.append result `(+ ~(keep-dash (get attrs i)) "=" "\"" (str ~(get attrs (+ i 1))) "\"")))
+      (.append result `(+ ~(name (get attrs i)) "=" "\"" (str ~(get attrs (+ i 1))) "\"")))
     `(.join " " ~result))
 
   (defn build-values (vals)
